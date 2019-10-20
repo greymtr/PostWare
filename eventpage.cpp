@@ -5,15 +5,20 @@
 using namespace std;
 
 int main() {
-   cout << "\t\tEVENT PAGE\n\t\t----------\n\n";
-   	string output, temp, title, input, date, time,posth;
-   	int ch;
-   	int tempi;
+
+	string output, temp, title, input, date, time,posth;
+	int ch, tempi;
+	
+	cout << "\t\t";
+	cout << "EVENT PAGE";
+	cout << "\n\t\t----------\n\n";
+   	
    	cout << "\n\n\nENTER TITLE :";
+
    	getline(cin,title);
    	bool l_c=true;
    	bool content_enter=false;
-   	
+
    	/*
    	time_t curr_time;
 	tm * curr_tm;
@@ -30,6 +35,7 @@ int main() {
 	date="";
 	time="";
    	
+
    	
    	while(l_c)
    	{
@@ -69,7 +75,7 @@ int main() {
  				
  			case 2:
  				input="";
- 				cout<< "\n\n\nInserting Image\n[ file must be located in folder resources/images/ ]\n\nEnter Image file name : ";
+ 				cout<< "\n< \n\nInserting Image\n[ file must be located in folder resources/images/ ]\n\nEnter Image file name : ";
  				cin >> input;
  				output += "<img src=\"resources/images/"+input+"\">\n";
  				cout << output << endl;
@@ -101,7 +107,7 @@ int main() {
  				
  				for( int i = tempi + 2; input[i] != '\0'; temp+=input[i++]);
  					
- 				output += "<video src=\"resources/videos/"+input+"\" type=\"video/"+temp+"\">\n";
+ 				output += "<video style=\"width:85%\" controls>\n<source src=\"resources/videos/"+input+"\" type=\"video/"+temp+"\">\n</video>";
  				cout << output << endl;
  				content_enter=true;
  				break;
@@ -114,7 +120,7 @@ int main() {
  				
  				for( int i = tempi + 2; input[i] != '\0'; temp+=input[i++]);
  					
- 				output += "<video src=\"resources/audios/"+input+"\" type=\"audio/"+temp+"\">\n";
+ 				output += "<audio controls>\n<source src=\"resources/audios/"+input+"\" type=\"audio/"+temp+"\">\n</audio>";
  				cout << output << endl;
  				content_enter=true;
  				break;	
@@ -189,7 +195,7 @@ int main() {
 		
 		cout << "TAIL = \n" << tail << endl;
 		
-		string finalt = head + posth + tail;
+		string finalt = head + posth + "<!-- [c] -->" + tail;
 		
 		ofstream myfile;
 		myfile.open ("index.html");
